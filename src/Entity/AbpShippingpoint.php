@@ -63,5 +63,82 @@ class AbpShippingpoint
      */
     private $isstorage;
 
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getAddress2(): ?string
+    {
+        return $this->address2;
+    }
+
+    public function setAddress2(string $address2): self
+    {
+        $this->address2 = $address2;
+
+        return $this;
+    }
+
+    public function getAddress3(): ?string
+    {
+        return $this->address3;
+    }
+
+    public function setAddress3(string $address3): self
+    {
+        $this->address3 = $address3;
+
+        return $this;
+    }
+
+    public function getCost(): ?int
+    {
+        return $this->cost;
+    }
+
+    public function setCost(int $cost): self
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    public function getIsstorage(): ?bool
+    {
+        return $this->isstorage;
+    }
+
+    public function setIsstorage(?bool $isstorage): self
+    {
+        $this->isstorage = $isstorage;
+
+        return $this;
+    }
+
 
 }
