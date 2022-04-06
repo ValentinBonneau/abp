@@ -1,7 +1,5 @@
 import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
 
 let calendarEl = document.getElementById('calendar');
 
@@ -10,7 +8,7 @@ let calendar = new Calendar(calendarEl, {
     locale:"fr",
     firstDay:1,
     initialView: 'timeGridWeek',
-    allDaySlot: null,
+    allDaySlot: false,
     headerToolbar: {
         left: 'today prev,next title',
         center: '',
@@ -26,12 +24,19 @@ let calendar = new Calendar(calendarEl, {
             slotMaxTime:"18:00:00",
 
         }
-    }
+    },
+    eventSources: [
+        {
+            url: '/agenda/feed/'
+            //https://fullcalendar.io/docs/events-json-feed
+        }
+    ]
 });
 
 calendar.render();
 
-
 console.log("test");
+
+
 
 //bonjour

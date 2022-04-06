@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AgendaController!{% endblock %}
+{% block title %}Agenda{% endblock %}
 
 {% block nav_title %} Agenda {% endblock %}
 
@@ -14,6 +14,22 @@
 
 {% block body %}
 
-<div id="calendar"></div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LivraisonModal">
+        Consigner une livraison
+    </button>
+    <div class="modal fade" id="LivraisonModal" tabindex="-1" aria-labelledby="LivraisonModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="LivraisonModalLabel">Consigner une livraison</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ form(formulaire) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="calendar"></div>
 
 {% endblock %}
