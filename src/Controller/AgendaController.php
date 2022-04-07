@@ -56,12 +56,12 @@ class AgendaController extends AbstractController
             ->add('depart', EntityType::class, [
                 'class' => AbpShippingpoint::class,
                 'choice_label' => 'name',
-                'label' => 'Client'
+                'label' => 'Depart'
             ] )
             ->add('arivee', EntityType::class, [
                 'class' => AbpShippingpoint::class,
                 'choice_label' => 'name',
-                'label' => 'Client'
+                'label' => 'Arivée'
             ] )
             ->add('ajouter', SubmitType::class)
             ->getForm();
