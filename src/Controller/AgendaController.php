@@ -27,7 +27,7 @@ use function Doctrine\ORM\QueryBuilder;
 class AgendaController extends AbstractController
 {
     #[Route('/agenda', name: 'app_agenda')]
-    public function index(): Response
+    public function index(EntityManagerInterface $em,Request $request): Response
     {
         $livraison = new Livraison();
 
@@ -65,6 +65,13 @@ class AgendaController extends AbstractController
             ] )
             ->add('ajouter', SubmitType::class)
             ->getForm();
+
+        //POST quand le form est executé
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em->persist($livraison);
+            $em->flush();
+        }
 
         return $this->render('agenda/index.html.twig', [
             'controller_name' => 'AgendaController',
